@@ -62,7 +62,6 @@
 	.video-container video {
 		width:100%;
 		height: 100%;
-
 	}
 	
 	.video-container .AboutMeSquare {
@@ -81,7 +80,7 @@
 		bottom: 5%;
 		left: 0;
 		right: 0;
-		font-size: 3vw;
+		font-size: 2.5vw;
 		font-family: Arial;
 		text-align: center;
 		font-weight: bold;
@@ -93,7 +92,7 @@
 		bottom: 5%;
 		left: 10%;
 		right: 10%;
-		font-size: 2vw;
+		font-size: 1.6vw;
 		text-align: justify;
 		font-family: Arial;
 		font-weight: normal;
@@ -102,31 +101,27 @@
 	.school-projects {
 	position: relative;
 	left:0;
+		right:0;
 	right:0;
 	top:0;
-	height: 1000px;
+	height: 3000px;
  	overflow: hidden;
   	background-color: black;
 }
 	
 	.school-projects a{
 		background-color: rgba(0,0,0,0);
-		 	 float: none;
-  		position: relative;
-  		top: 25%;
-  		left: 25%;
-		right: 25%;
-		bottom: 25%
-  		
 	}
 	
 	.school-projects img{
 			 float: none;
   		position: relative;
-  		top: 25%;
-  		left: 25%;
-		right: 25%;
-		bottom: 25%
+		width: 20vw;
+		height: 20vw;
+  		top: 10%;
+  		left: 18%;
+		right: 40%;
+		bottom: 100%
 	}
 	
 	.school-projects img:hover {
@@ -134,15 +129,31 @@
 		transition: transform .2s; /* Animation */
 		transform: scale(1.2);
 }
-	.tag-cloud {
-		align-content: center;
+	.school-projects img:not(:hover){
+		transition: transform .2s; /* Animation */
+		transform: scale(1);
+	}
+  .school-projects .tag-cloud {
+	  position: relative;
   display: inline-block;
   color: white;
-  padding: 4px 10px;
+  padding: 8px 16px;
   font-family: Arial;
-  border-radius: 25px;
+	  font-size: 1.1vw;
+  border-radius: 40px;
   background-color: #2196F3;
-  margin-top: 8px;
+  top: 16%;
+  left: 0;
+  right: 0;
+}
+  .school-projects	table{
+  margin-left: auto; 
+  margin-right: auto;
+	  margin-bottom: auto;
+	  margin-top: auto;
+	  
+	  width: 100%;
+	  height: 100%;
 }
 </style>
 	
@@ -165,26 +176,25 @@
 
 	
 <div class="video-container">
-	<video src="TestVideoPort.mkv" muted autoplay></video>
+	<video src="TestVideoPort.mkv" muted autoplay loop></video>
 	<div id="aboutMe" class="AboutMeSquare"></div>
 	<h1 class="AboutMeTitle">About Me</h1>
-	<h2  class="AboutMeText">Hello! My name is Steph. I'm a game programmer in the learning and am currently studying game development in The Netherlands. I've been wanting to go into the game industry since I was very young. I took Scratch cursus' and tried to make roblox games using LUA. I currently work with C# and Unity.</h2>
+	<h2  class="AboutMeText">Hello! My name is Steph and I'm a game programmer in the learning. I'm currently studying game development in The Netherlands and have been wanting to go into the game industry ever since I were young. I took Scratch cursus' and tried to make roblox games using LUA. I currently work with C# and Unity.</h2>
 </div>
-	<br><br><br>
+	<br><br><br><br><br>
 	
 	
 	<div class="school-projects">
-		<table style="width:100% left:0 right:0">
-  <tr style="height:400px">
-    <td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a> <span class="tag-cloud">Ford</span></td>
+		
+		<table>
+  <tr>
+    <td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a> <div class="tag-cloud">C#</div><div class="tag-cloud">Unity3D</div></td>
     <td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
-	<td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
 	<td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
   </tr>
-  <tr style="height:400px">
+  <tr>
   	<td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
     <td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
-	<td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
 	<td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
   </tr>
 </table>
