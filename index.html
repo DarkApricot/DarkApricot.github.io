@@ -99,29 +99,27 @@
 		}
 	
 	.school-projects {
-	position: relative;
-	left:0;
+/*
+		position: relative;
+		left:0;
+			right:0;
 		right:0;
-	right:0;
-	top:0;
-	height: 3000px;
- 	overflow: hidden;
-  	background-color: black;
-}
+		top:0;
+		height: 3000px;
+
+		overflow: hidden;*/
+		background-color: black;
+	}
 	
 	.school-projects a{
 		background-color: rgba(0,0,0,0);
+		float:left;
+		    width: 100%;
 	}
 	
 	.school-projects img{
-			 float: none;
-  		position: relative;
-		width: 20vw;
-		height: 20vw;
-  		top: 10%;
-  		left: 18%;
-		right: 40%;
-		bottom: 100%
+		width:550px;
+		
 	}
 	
 	.school-projects img:hover {
@@ -133,18 +131,30 @@
 		transition: transform .2s; /* Animation */
 		transform: scale(1);
 	}
+	.school-projects .tag{
+		float:left;
+		clear:both;
+		width:100%;
+		display: flex;
+    	justify-content: center;
+	}
   .school-projects .tag-cloud {
+/*
 	  position: relative;
   display: inline-block;
+*/
   color: white;
   padding: 8px 16px;
   font-family: Arial;
 	  font-size: 1.1vw;
   border-radius: 40px;
   background-color: #2196F3;
+	  float:left;
+/*
   top: 16%;
   left: 0;
   right: 0;
+*/
 }
   .school-projects	table{
   margin-left: auto; 
@@ -155,6 +165,11 @@
 	  width: 100%;
 	  height: 100%;
 }
+	.w-3{
+		width:33.3%;
+		text-align: center;
+		padding-bottom:40px;
+	}
 </style>
 	
 <head>
@@ -188,14 +203,24 @@
 		
 		<table>
   <tr>
-    <td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a> <div class="tag-cloud">C#</div><div class="tag-cloud">Unity3D</div></td>
-    <td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
-	<td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
+    <td class="w-3">
+		<a href="#aboutMe"><img src="HappySquare.png" alt=""></a>
+		<div class="tag">
+			<div class="tag-cloud">C#</div><div class="tag-cloud">Unity3D</div>
+		</div>
+		
+	</td>
+    <td class="w-3"><a href="#aboutMe"><img src="HappySquare.png" alt=""></a><div class="tag">
+			<div class="tag-cloud">C#</div><div class="tag-cloud">Unity3D</div>
+		</div></td>
+	<td class="w-3"><a href="#aboutMe"><img src="HappySquare.png" alt=""></a><div class="tag">
+			<div class="tag-cloud">C#</div><div class="tag-cloud">Unity3D</div>
+		</div></td>
   </tr>
   <tr>
-  	<td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
-    <td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
-	<td><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
+  	<td class="w-3"><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
+    <td class="w-3"><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
+	<td class="w-3"><a href="#aboutMe"><img src="HappySquare.png" alt=""></a></td>
   </tr>
 </table>
 	
