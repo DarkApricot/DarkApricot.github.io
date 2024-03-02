@@ -1,6 +1,42 @@
 <!doctype html>
 
 <html>
+<script type="text/javascript">
+window.onload = function(e) {
+var videoSource = new Array();
+videoSource[0] = 'HomePage/IntroVid(s)/IntroVid1.mp4';
+videoSource[1] = 'HomePage/IntroVid(s)/IntroVid2.mp4';
+videoSource[2] = 'HomePage/IntroVid(s)/IntroVid2.5.mp4';
+videoSource[3] = 'HomePage/IntroVid(s)/IntroVid3.mp4';
+videoSource[4] = 'HomePage/IntroVid(s)/IntroVid4.mp4';
+videoSource[5] = 'HomePage/IntroVid(s)/IntroVid5.mp4';
+
+var videoCount = videoSource.length;
+var i = getRandomInt(6);
+
+function getRandomInt(max) {
+ return Math.floor(Math.random() * max);
+}
+	
+document.getElementById("myVideo").setAttribute("src",videoSource[i]);
+function videoPlay(videoNum)
+{
+	document.getElementById("myVideo").setAttribute("src",videoSource[videoNum]);
+	document.getElementById("myVideo").load();
+	document.getElementById("myVideo").play();
+}
+	
+document.getElementById('myVideo').addEventListener('ended',myHandler,false);
+		
+function myHandler()
+{
+	i++;
+	if(i == videoCount){ i = 0; }
+	videoPlay(i);
+} 
+}
+</script>
+	
 <head>
 	<meta charset="utf-8">
 	<title>Portfolio Steph Smout</title>
@@ -34,7 +70,7 @@
 	.topnav a {
 	  color: black;
 	  text-align: center;
-	  padding: 7px 8px;
+	  padding: 7px 12px;
 	  text-decoration: none;
 	  font-family: Arial;
 	  font-size: 1.2vw;
@@ -81,7 +117,7 @@
 		left: 0%;
 		right: 0%;
 		
-		background-color: rgb(255 255 255 / 70%);
+		background-color: rgb(255 255 255 / 75%);
 	}
 	
 	.video-container .AboutMeTitle {
@@ -188,7 +224,7 @@
 
 	
 <div class="video-container">
-	<video src="HomePage/TestVideoPort.mkv" muted autoplay loop></video>
+	<video id="myVideo" muted autoplay></video>
 	<div id="aboutMe" class="AboutMeSquare"></div>
 	<h1 class="AboutMeTitle">About Me</h1>
 	<h2  class="AboutMeText">Hello! My name is Steph and I'm a game programmer in the learning. I'm currently studying game development in The Netherlands and have been wanting to go into the game industry ever since I were young. I took Scratch cursus' and tried to make roblox games using LUA. I currently work with C# and Unity.</h2>
