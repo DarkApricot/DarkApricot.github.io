@@ -2,16 +2,50 @@
 <html>
 <head>
 <meta charset="utf-8">
+	
+
+<script type="text/javascript">
+window.onload = function(e) {
+
+var videoSource = new Array();
+videoSource[0] = 'PromoVid1.mp4';
+videoSource[1] = 'PromoVid2.mp4';
+videoSource[2] = 'PromoVid3.mp4';
+var videoCount = videoSource.length;
+var i = 0;
+	
+document.getElementById("myVideo").setAttribute("src",videoSource[0]);
+function videoPlay(videoNum)
+{
+	document.getElementById("myVideo").setAttribute("src",videoSource[videoNum]);
+	document.getElementById("myVideo").load();
+	document.getElementById("myVideo").play();
+}
+	
+document.getElementById('myVideo').addEventListener('ended',myHandler,false);
+		
+function myHandler()
+{
+	i++;
+	if(i == videoCount){ i = 0; }
+	videoPlay(i);
+} 
+}
+</script>
+
+	
 <title>Winter Wonder Ride!</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-	*{
-		padding:0;
-		margin:0;
-	}
-	html {
-	  scroll-behavior: smooth;
-	}
+	
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+<style>
+{
+	padding:0;
+	margin:0;
+}
+html{
+	scroll-behavior: smooth;
+}
 
 	body{
 		background-color: darkred;
@@ -159,7 +193,7 @@
 	</div>
 	<div class="background-rectangle" style="border: thick solid #A58626;">
 	<h1> Winter Wonder Ride!</h1>
-	<video  width="840" height="504" src="IntroVideoWinterWonderRide.mp4" controls></video>
+	<video id="myVideo" width="840" height="504" controls></video>
 		
 
 		
