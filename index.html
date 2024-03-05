@@ -144,38 +144,34 @@ function myHandler()
 		font-weight: normal;
 		}
 	
-	.school-projects {
+	.projects {
 		background-color: black;
 	}
 	
-	.school-projects a{
+	.projects a{
 		background-color: rgba(0,0,0,0);
 		float:left;
 		    width: 100%;
 	}
 	
 	
-	.school-projects img:hover {
+	.projects img:hover {
 	
 		transition: transform .2s; /* Animation */
 		transform: scale(1.2);
 }
-	.school-projects img:not(:hover){
+	.projects img:not(:hover){
 		transition: transform .2s; /* Animation */
 		transform: scale(1);
 	}
-	.school-projects .tag{
+	.projects .tag{
 		float:left;
 		clear:both;
 		width:100%;
 		display: flex;
     	justify-content: center;
 	}
-  .school-projects .tag-cloud {
-/*
-	  position: relative;
-  display: inline-block;
-*/
+  .projects .tag-cloud {
   color: white;
   padding: 8px 16px;
   font-family: Arial;
@@ -184,13 +180,9 @@ function myHandler()
   background-color: #2196F3;
 	  float:left;
 	  z-index: 30;
-/*
-  top: 16%;
-  left: 0;
-  right: 0;
-*/
 }
-  .school-projects	table{
+		
+  .projects	table{
   margin-left: auto; 
   margin-right: auto;
 	  margin-bottom: auto;
@@ -199,6 +191,7 @@ function myHandler()
 	  width: 100%;
 	  height: 100%;
 }
+		
 	.w-3{
 		width:33.3%;
 		text-align: center;
@@ -215,7 +208,7 @@ function myHandler()
 	
 <div class="topnav">
   <a style="float:left" href="#schoolProjects">School Projects</a>
-  <a style="float:left" href="#news">Personal Projects</a>
+  <a style="float:left" href="#personalProjects">Personal Projects</a>
 		<name>Steph Smout</name>
   <a style="float:right" href="#contact">Contact</a>
   <a style="float:right" href="#aboutMe">About Me</a>
@@ -230,7 +223,7 @@ function myHandler()
 	<h2  class="AboutMeText">Hello! My name is Steph and I'm a (game) programmer in the learning. I'm currently studying game development in The Netherlands and have wanted to work in the game industry ever since I was young; I took Scratch cursuses and tried to self-study LUA when I was around 10, then learned HTML and CSS/JavaScript basics when I was around 12-13. I have high ambition and creativity, but also a fun and humorous side that you can laugh with. ;P</h2>
 </div>
 	
-	<div id="schoolProjects" class="school-projects">
+	<div id="schoolProjects" class="projects">
 		<br><br>
 		<h1 style="color:white; text-align:center; font-family:Arial">- School Projects -</h1>
 		<table>
@@ -239,16 +232,36 @@ function myHandler()
 		<a href="ProjectPages/WinterWonderRide/WinterWonderRide.html"><img style="width: 60%; height: 60%; border:thick solid darkred;" src="HomePage/ImagesSchoolProjects/WinterWonderRideImg.png" alt=""></a>
 
 		<div class="tag">
-			<div class="tag-cloud">C#</div><div class="tag-cloud">Unity3D</div>
+			<div class="tag-cloud">C#</div><div class="tag-cloud">Unity3D</div><div class="tag-cloud">Dev</div>
 		</div>
 		
 	</td>
     <td class="w-3"><a href="ProjectPages/LethalZombies/LethalZombies.html"><img style="width: 60%; height: 60%; border:thick solid darkred;" src="HomePage/ImagesSchoolProjects/TowerDefenseImg.png" alt=""></a><div class="tag">
-			<div class="tag-cloud">C#</div><div class="tag-cloud">Unity3D</div>
+			<div class="tag-cloud">C#</div><div class="tag-cloud">Unity2D</div><div class="tag-cloud">Dev</div><div class="tag-cloud">Artist</div>
 		</div></td>
-	<td class="w-3"><a href="#aboutMe"><img src="HomePage/HappySquare.png" alt=""></a><div class="tag">
-			<div class="tag-cloud">C#</div><div class="tag-cloud">Unity3D</div>
+	<td class="w-3"><a href="#aboutMe"><img style="width: 60%; height: 60%; border:thick solid darkred;" src="HomePage/ImagesSchoolProjects/PixelPlatformerPic.png" alt=""></a><div class="tag">
+			<div class="tag-cloud">C#</div><div class="tag-cloud">Unity2D</div><div class="tag-cloud">Dev</div><div class="tag-cloud">Artist</div>
 		</div></td>
+  </tr>
+  
+			
+</table>
+	
+	</div>
+	<br>
+<div id="personalProjects" class="projects">
+		<br><br>
+		<h1 style="color:white; text-align:center; font-family:Arial">- Personal Projects -</h1>
+		<table>
+  <tr>
+    <td class="w-3">
+		
+
+
+		
+	</td>
+    <td class="w-3"></td>
+	<td class="w-3"></td>
   </tr>
   <tr>
   	<td class="w-3"><a href="#aboutMe"><img src="HomePage/HappySquare.png" alt=""></a></td>
@@ -256,8 +269,8 @@ function myHandler()
 	<td class="w-3"><a href="#aboutMe"><img src="HomePage/HappySquare.png" alt=""></a></td>
   </tr>
 </table>
-	
 	</div>
-	
+	<br id="contact"><br>
+	<a href="mailto:stephaniesmout14@gmail.com" target="_blank"><img width="100px" src="HomePage/Contact/EmailImg.png" alt="stephaniesmout14@gmail.com"></a>
 </body>
 </html>
