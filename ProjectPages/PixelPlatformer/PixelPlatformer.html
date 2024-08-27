@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Title</title>
+    <title>Pixel Platformer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
@@ -153,6 +153,32 @@
             font-family: Arial, sans-serif;
             font-size: 16px;
         }
+		
+		.wrapper {
+		align-content: center;
+		align-self: center;
+		width:80%;
+		padding-bottom:40px;
+		padding-top:40px;
+		padding-left: 20px;
+		padding-right: 20px;
+}
+
+.wrapper code {
+  display: block;
+  background: #535353;
+  color: white;
+  width: 100%;
+  max-width: 500px;
+  max-height: 300px;
+  white-space: pre;
+  font-size: 15px;
+  line-height: 1.55;
+  padding: 1.55em;
+  border-radius: 12px;
+  overflow-x: scroll;
+text-align: left;
+}
     </style>
 </head>
 
@@ -171,7 +197,7 @@
     </div>
 
     <div class="video-container">
-        <video src="../../HomePage/TestVideoPort.mkv" muted autoplay loop></video>
+        <video src="PixelPlatformerBackgroundVideo.mp4" muted autoplay loop></video>
     </div>
 
     <div class="background-rectangle">
@@ -188,7 +214,90 @@
 		Art pack "Pixel Adventure 1" created by Pixel Frog. <br>
 	https://assetstore.unity.com/publishers/44925 - Pixel Frog</h3>
 </div>
+		<br><br>
+		<h1>Level 1 : A Normal Afternoon</h1>
+		 <video style="width: 95%;" src="Level1/PixelPlatformerLevel1Full.mp4" controls></video>
 		
+<div style="margin-top: -50px;">
+		<div class="video-left">
+<table>
+<tr>
+	<td class="w-3">
+		<div class="wrapper" style="margin-left: -30px;">
+  <code> 
+using UnityEngine.UI;
+
+public class FruitCollector : MonoBehaviour
+{
+	[SerializeField] private Text fruitText; //The text left top of your screen
+
+	private int fruitScore; //How much fruit you've collected
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Strawberry")) //If you touch a strawberry
+		{
+			Destroy(collision.gameObject); //Destroys the strawberry
+			fruitScore++;
+			fruitText.text = "Tutti Fruiti: " + fruitScore; //This is put in the left top of your screen, the fruitscore gets turned into a changing string
+		}
+	}
+}
+</code>
+</div>
+	</td>
+	
+	
+	<td class="w-3" >
+		<h2 style="	margin-left: -100px;
+				   margin-right: -30px; margin-top: -80px;"> Strawberries (Collectable)</h2> <br><br>
+	<h3 style="	margin-left: -100px;
+				   margin-right: -30px; margin-top: -20px">
+At the tutorial of the game, we were told how to make collectible fruit, and how to animate it. It wasn’t hard, since we just had to follow the video guide, but it sure was quite lengthy.
+<br><br>
+For the animation we just cut out some given sprites, shoved them in an animator and put it on repeat.
+<br><br>
+I ended up using the strawberries as a guide of where to go and how to do certain jumps. </h3>
+	</td>
+</tr>
+</table>
+</div>
+		
+				<div class="video-right">
+<table>
+<tr>
+	
+	<td class="w-3" >
+		<h2 style="	margin-left: -30px;
+				   margin-right: -100px; margin-top: -80px;"> The Fans (Literally)</h2> <br><br>
+	<h3 style="	margin-left: -30px;
+				   margin-right: -100px; margin-top: -20px">
+Text about code :P aaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaa aaaaaaaa a a a a aaaa aaaaaaa</h3>
+	</td>
+	<td class="w-3">
+		<div class="wrapper" style="margin-left: 50px; margin-right: -50px">
+  <code> 
+private void OnTriggerEnter2D(Collider2D collision) //When you get into/onto the fan, the collision is the the height up to the cliff so you can't jump back down
+{
+	if (collision.gameObject.CompareTag("Fan"))
+	{
+		rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 23); //Add 23 to the Y position, it makes the player fly up quickly and 23 is good for onto the first cliff
+	}
+	if (collision.gameObject.CompareTag("FanxButton") && summonStairs == true) //The fan that's connected to the button, and if the button is pressed
+	{
+		rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 25);
+	}
+}
+	  
+</code>
+</div>
+	</td>
+	
+</tr>
+</table>
+</div>
+		
+		<br><br><br><br><br>
         <div class="video-right">
             <table>
                 <tr>
@@ -214,6 +323,9 @@
                 </tr>
             </table>
         </div>
-    </div>
+		
+		
+		
+		</div></div>
 </body>
 </html>
