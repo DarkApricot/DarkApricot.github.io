@@ -176,6 +176,59 @@
     </style>
 </head>
 <body>
+	
+    <script type="text/javascript">
+        window.onload = function () {
+            var videoSource = [
+                'HomePage/IntroVid(s)/IntroVid1.mp4',
+                'HomePage/IntroVid(s)/IntroVid2.mp4',
+                'HomePage/IntroVid(s)/IntroVid2.5.mp4',
+                'HomePage/IntroVid(s)/IntroVid3.mp4',
+                'HomePage/IntroVid(s)/IntroVid4.mp4',
+                'HomePage/IntroVid(s)/IntroVid5.mp4'
+            ];
+
+            var videoCount = videoSource.length;
+            var i = getRandomInt(videoCount);
+
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+            }
+
+            var videoElement = document.getElementById("myVideo");
+            videoElement.src = videoSource[i];
+
+            // Prefetch the next videos
+            function prefetchVideos() {
+                for (var j = 0; j < videoSource.length; j++) {
+                    if (j !== i) {
+                        var link = document.createElement('link');
+                        link.rel = 'prefetch';
+                        link.href = videoSource[j];
+                        link.as = 'video';
+                        document.head.appendChild(link);
+                    }
+                }
+            }
+
+            prefetchVideos();
+
+            function videoPlay(videoNum) {
+                videoElement.src = videoSource[videoNum];
+                videoElement.load();
+                videoElement.play();
+            }
+
+            videoElement.addEventListener('ended', function () {
+                i++;
+                if (i === videoCount) {
+                    i = 0;
+                }
+                videoPlay(i);
+            }, false);
+        }
+    </script>
+	
     <div class="topnav">
         <div class="nav-left">
             <a href="index.html#groupProjects">Group Projects</a>
@@ -270,57 +323,5 @@
     <a href="mailto:stephaniesmout14@gmail.com" target="_blank">
         <img width="100px" src="HomePage/Contact/EmailImg.png" alt="stephaniesmout14@gmail.com">
     </a>
-
-    <script type="text/javascript">
-        window.onload = function () {
-            var videoSource = [
-                'HomePage/IntroVid(s)/IntroVid1.mp4',
-                'HomePage/IntroVid(s)/IntroVid2.mp4',
-                'HomePage/IntroVid(s)/IntroVid2.5.mp4',
-                'HomePage/IntroVid(s)/IntroVid3.mp4',
-                'HomePage/IntroVid(s)/IntroVid4.mp4',
-                'HomePage/IntroVid(s)/IntroVid5.mp4'
-            ];
-
-            var videoCount = videoSource.length;
-            var i = getRandomInt(videoCount);
-
-            function getRandomInt(max) {
-                return Math.floor(Math.random() * max);
-            }
-
-            var videoElement = document.getElementById("myVideo");
-            videoElement.src = videoSource[i];
-
-            // Prefetch the next videos
-            function prefetchVideos() {
-                for (var j = 0; j < videoSource.length; j++) {
-                    if (j !== i) {
-                        var link = document.createElement('link');
-                        link.rel = 'prefetch';
-                        link.href = videoSource[j];
-                        link.as = 'video';
-                        document.head.appendChild(link);
-                    }
-                }
-            }
-
-            prefetchVideos();
-
-            function videoPlay(videoNum) {
-                videoElement.src = videoSource[videoNum];
-                videoElement.load();
-                videoElement.play();
-            }
-
-            videoElement.addEventListener('ended', function () {
-                i++;
-                if (i === videoCount) {
-                    i = 0;
-                }
-                videoPlay(i);
-            }, false);
-        }
-    </script>
 </body>
 </html>
