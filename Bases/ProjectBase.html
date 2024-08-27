@@ -1,199 +1,208 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Title</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-	*{
-		padding:0;
-		margin:0;
-	}
-	html {
-	  scroll-behavior: smooth;
-	}
+    <meta charset="utf-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
 
-	body{
-		background-color: darkred;
-		margin:0px; 
-		padding: 0px;
-	}
-	
-		
-	<style>
-		
-	.video-container {
-		position: fixed;
-	}
-	
-	.video-container video {
-		position: fixed;
-		top: -60px;
-		left: -160px;
-		width:120%;
-		
-		height:120%;
-		z-index: -50;
-	}
-		
-	.background-rectangle {
-			position: relative;
-			
-			width: 60%;
-			height: 5000px;
-			background-color: rgb(255 255 255 / 70%);
-			left: 20%;
-		}
-		
-	.topnav {
-		position: fixed;
-		left:0;
-		right:0;
-		top:0;
-		height: 35px;
-		z-index: 50;
-	  overflow: hidden;
-	  background-color: rgb(255 255 255 / 40%);
-	}
+        html {
+            scroll-behavior: smooth;
+        }
 
-	.topnav a {
-	  color: black;
-	  text-align: center;
-	  padding: 7px 8px;
-	  text-decoration: none;
-	  font-family: Arial;
-	  font-size: 1.2vw;
-	}
-		
-	.topnav name {
-		 float: none;
-  		position: absolute;
-		top: 50%;
-  		left: 50%;
-  		transform: translate(-50%, -50%);
-		
-		text-align: center;
-		text-decoration: none;
-		padding: 14px 16px;
-		font-family: Arial;
-		font-size: 1.5vw;
-		font-weight: bold;
-	}
+        body {
+            background-color: darkred;
+            margin: 0;
+            padding: 0;
+        }
 
-	.topnav a:hover {
-	  background-color: white;
-	  color: black;
-	}
+        .topnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 35px;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
 
-	.topnav a.active {
-	  background-color: darkred;
-	  color: white;
-	}
-		
-		
-		.video-right video{
-			float: right;
-			padding-top: 0px;
-			padding-right: 20px;
-		}
-		
-		.video-left video {
-			float: left;
-			padding-top: 0px;
-			padding-left: 20px;
-		}
-		
-		.video-center video {
-			float: none;
-			padding-top: 0px;
-			padding-left: 20px;
-		}
-		
-		.background-rectangle h1 {
-			padding-top: 45px;
-			font-family: Arial; 
-			text-align: center;
-			font-weight: 3000;
-			font-size:60px;
-		}
-		.background-rectangle video {
-			display: block;
-			margin: 0 auto;
-			padding-top: 20px;
-			padding-bottom: 100px;
-		}
-		
-		.background-rectangle table {
-  		margin-left: auto; 
-  margin-right: auto;
-	  margin-bottom: auto;
-	  margin-top: auto;
-	  
-	  width: 100%;
-	  height: 100%;
-}
-		.w-3{
-		width:50%;
-		text-align: center;
-		font-family: Arial;
-		padding-bottom:40px;
-		padding-top:40px;
-			padding-left: 20px;
-			padding-right: 20px;
-	}
-	</style>
+        .topnav .left-buttons,
+        .topnav .right-buttons {
+            display: flex;
+        }
+
+        .topnav .left-buttons a,
+        .topnav .right-buttons a {
+            color: black;
+            text-align: center;
+            padding: 7px 8px;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 1.2vw;
+        }
+
+        .topnav .left-buttons a {
+            margin-right: 0;
+        }
+
+        .topnav .right-buttons a {
+            margin-left: 0;
+        }
+
+        .topnav .name {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            padding: 14px 16px;
+            font-family: Arial, sans-serif;
+            font-size: 1.5vw;
+            font-weight: bold;
+        }
+
+        .topnav a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: darkred;
+            color: white;
+        }
+
+        .video-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -50;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: -60px;
+            left: -160px;
+            width: 120%;
+            height: 120%;
+        }
+
+        .background-rectangle {
+            position: relative;
+            width: 60%;
+            height: 5000px;
+            background-color: rgba(255, 255, 255, 0.7);
+            left: 20%;
+            padding: 20px;
+            border: thick solid #932C00;
+        }
+
+        .background-rectangle h1 {
+            padding-top: 45px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-weight: bold;
+            font-size: 60px;
+        }
+
+        .background-rectangle video {
+            display: block;
+            margin: 0 auto;
+            padding-top: 20px;
+            padding-bottom: 100px;
+        }
+
+        .video-right, .video-left, .video-center {
+            padding-top: 0;
+        }
+
+        .video-right {
+            float: right;
+            padding-right: 20px;
+        }
+
+        .video-left {
+            float: left;
+            padding-left: 20px;
+        }
+
+        .video-center {
+            float: none;
+            padding-left: 20px;
+        }
+
+        .background-rectangle table {
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .w-3 {
+            width: 50%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 40px 20px;
+        }
+
+        h3 {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+    </style>
 </head>
 
 <body>
-			<div class="topnav">
-  <a style="float:left" href="../../index.html#schoolProjects">School Projects</a>
-  <a style="float:left" href="../../index.html#personalProjects">Personal Projects</a>
-		<name>Steph Smout</name>
-  <a style="float:right" href="../../index.html#contact">Contact</a>
-  <a style="float:right" href="../../index.html#aboutMe">About Me</a>
-  <a style="float:right" href="../../index.html#about">CV</a>
-</div>
-	
-	<div class="video-container">
-	<video src="../HomePage/TestVideoPort.mkv" muted autoplay loop></video>
-	</div>
-	<div class="background-rectangle">
-	<h1> Title </h1>
-	<video  src="../HomePage/TestVideoPort.mkv" controls></video>
-		
+    <div class="topnav">
+        <div class="left-buttons">
+            <a href="../index.html#groupProjects">Group Projects</a>
+            <a href="../index.html#soloProjects">Solo Projects</a>
+        </div>
+        <div class="name">Steph Smout</div>
+        <div class="right-buttons">
+            <a href="../index.html#about">CV</a>
+            <a href="../index.html#aboutMe">About Me</a>
+            <a href="../index.html#contact">Contact</a>
+        </div>
+    </div>
 
-		
-<div class="video-right">
-<table>
-<tr>
-	
-	<td class="w-3">
-		<h3> gae aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaa gae  aaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaa aaaaaaaaaaaaaa a a aaa aaaaaa aaaaaaaaa aaaaaaaaa aaaa aaaaaaaaaaaaaaaaaaa aaa aa aa a a a aaaaaaaaaaa aaa a a a aaaaaaaaaaa aaaa a a aaaaa a a aaaaaaaa aaaaaaaaaaaaaa a a  aaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaa a aaaaaaa aaaaaaaaaaaaaaa </h3>
-	</td>
-	<td>
-		<video width="500" height="300" src="../HomePage/TestVideoPort.mkv" controls></video>	
-	</td>
-</tr>
-</table>
-</div>
-		
-<div class="video-left">
-<table>
-<tr>
-	<td>
-		<video width="500" height="300" src="../HomePage/TestVideoPort.mkv" controls></video>	
-	</td>
-	
-	<td class="w-3">
-		<h3> gae aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaa gae  aaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaa aaaaaaaaaaaaaa a a aaa aaaaaa aaaaaaaaa aaaaaaaaa aaaa aaaaaaaaaaaaaaaaaaa aaa aa aa a a a aaaaaaaaaaa aaa a a a aaaaaaaaaaa aaaa a a aaaaa a a aaaaaaaa aaaaaaaaaaaaaa a a  aaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaa a aaaaaaa aaaaaaaaaaaaaaa </h3>
-	</td>
-</tr>
-</table>
-</div>
-	
-		
-	</div>
+    <div class="video-container">
+        <video src="../HomePage/TestVideoPort.mkv" muted autoplay loop></video>
+    </div>
 
-	<h1>gay ahaha</h1>
+    <div class="background-rectangle">
+        <h1>Title</h1>
+        <video src="../HomePage/TestVideoPort.mkv" controls></video>
+
+        <div class="video-right">
+            <table>
+                <tr>
+                    <td class="w-3">
+                        <h3>Some text describing the video content. This is a placeholder for the actual text.</h3>
+                    </td>
+                    <td>
+                        <video width="500" height="300" src="../HomePage/TestVideoPort.mkv" controls></video>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="video-left">
+            <table>
+                <tr>
+                    <td>
+                        <video width="500" height="300" src="../HomePage/TestVideoPort.mkv" controls></video>
+                    </td>
+                    <td class="w-3">
+                        <h3>Some more text describing another video content. This is also a placeholder.</h3>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

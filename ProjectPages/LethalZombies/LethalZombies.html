@@ -170,13 +170,38 @@ function nextImg()
 		.slideButton button:hover{
 			opacity: 0;
 		}
+		
+	.wrapper {
+		align-content: center;
+		align-self: center;
+		width:80%;
+		padding-bottom:40px;
+		padding-top:40px;
+		padding-left: 20px;
+		padding-right: 20px;
+}
+
+.wrapper code {
+  display: block;
+  background: #e9d5cc;
+  width: 100%;
+  max-width: 500px;
+  max-height: 300px;
+  white-space: pre;
+  font-size: 15px;
+  line-height: 1.55;
+  padding: 1.55em;
+  border-radius: 12px;
+  overflow-x: scroll;
+text-align: left;
+}
 	</style>
 </head>
 
 <body>
 			<div class="topnav">
-  <a style="float:left" href="../../index.html#schoolProjects">School Projects</a>
-  <a style="float:left" href="../../index.html#personalProjects">Personal Projects</a>
+  <a style="float:left" href="../../index.html#groupProjects">Group Projects</a>
+  <a style="float:left" href="../../index.html#soloProjects">Solo Projects</a>
 		<name>Steph Smout</name>
   <a style="float:right" href="../../index.html#contact">Contact</a>
   <a style="float:right" href="../../index.html#aboutMe">About Me</a>
@@ -191,43 +216,97 @@ function nextImg()
 	<video  src="IntroVidLethalZombies.mp4" width="840" height="504" controls></video>
 		
 
-		
+		<h2 style="width:100%; text-align:center;
+		font-family:Arial; margin-top: -50px;  margin-bottom:0;"> This is project Lethal Zombies!</h2>
+		<h3 style="width:100%; text-align:center;
+		font-family:Arial; top: -30px; margin-top:0; margin-bottom:10px;">For this project we had a week to make a tower defense, this was at the height of the Lethal Company popularity and I thought: "Hey, isn't Plants vs. Zombies technically a tower defense?" And thats how we got to this point.<br> In my version you play as the monsters, defending your home from the Human enemies that want to steal your items.
+		<br><br>
+		In this project I made all the 2D art, animations and code.</h3>
+		<h4 style="width:100%; text-align:center;
+		font-family:Arial; margin-top:0;"> Original Plants vs. Zombies by PopCap Games. <br> Original Lethal Company and used art by Zeekerss.</h4>
+		<br><br><br>
 <div class="video-right">
 <table>
 <tr>
-	
 	<td class="w-3">
-		<h3> For this project we had a week to make a tower defense, this was at the height of the Lethal Company popularity and I thought: "Hey, isn't Plants vs. Zombies technically a tower defense?" And thats how we got to this point.
-		<br><br>
-		I also decided to be extra unnecessarily extra and make all the art/animations myself, too. 😂 <br><br><br><br><br><br></h3>
+		<h3>Art</h3><br>
+		<h3> Here is a GIF collage of some of the animations I've made.<br> This includes the Nutcracker character shooting and dying. <br> + the Human enemies walking, attacking and also dying.</h3>
 	</td>
-	<td>
+	<td class="w-3">
 		<video width="500" height="300" src="VideoAnims.mp4" muted autoplay loop></video>	
 	</td>
 </tr>
 </table>
 </div>
-		
+
+	
 <div class="video-left">
 <table>
 <tr>
-	<td>
-		<button onclick="nextImg()">
-        <img  width="30px" src="ArrowLeft.png" alt=""></button>
-		<img style="float:right;" width="30px" src="ArrowRight.png" alt="">
-		<img style="position: relative" id="imgSlider" width="700" alt="codeSnippets"> 
+	<td class="w-3">
+		<div class="wrapper">
+  <code> public void PlaceMonster(Transform _newParent, Vector3 _newPosition)
+    {
+        transform.position = _newPosition;
+        transform.parent = _newParent;
+
+        playerLayerMask = LayerMask.GetMask("Player");
+        gameObject.layer = monsterLayerMask;
+
+        GameObject _hpBar = Instantiate(hpBarPrefab, GameObject.Find("HPCanvas/Mon_HealthBars").transform);
+        _hpBar.transform.position = new Vector2(transform.position.x - 0.2f, transform.position.y + 0.5f); //Update HP bar pos
+        associatedHPBar = _hpBar.GetComponent<Slider>();
+        UpdateHPBar(Health);
+    }
+  </code>
+</div>
 	</td>
 	
 	<td class="w-3">
-		<h3> Here are some code snippets of how I check for empty tiles to place monsters. </h3>
+		<h3> Code snippets </h3> <br>
+		<h3>This code snippet is from a function of placing a monster. It works with any type of monster, but in the single week I made this I only made the Nutcracker. </h3>
 	</td>
 </tr>
 </table>
 </div>
 	
-		
-	</div>
+	<div class="video-right">
+<table>
+<tr>
+	<td class="w-3">
+		<h3> This is a code snippet showing the system of placing new monsters.</h3>
+	</td>
+	<td class="w-3">
+		<div class="wrapper">
+  <code>  private void OnEnable()
+    {
+        transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
 
+        while (!CheckIfTileHasMonster())
+        {
+            if (!CheckIfTouchWall()) //This check is needed because the monster would land on a tile outside of the map
+            {
+                transform.position = new Vector3(0.5f, -0.5f, 0); //set to tile middle of map
+                while (!CheckIfTileHasMonster()) //for if middle of map tile already has monster
+                {
+                    NewSpawnPosition();
+                }
+
+                break;
+            }
+            else
+            {
+                NewSpawnPosition();
+            }
+        }
+    } </code>
+</div>
+	</td>
+</tr>
+</table>
+</div>
+	
+	</div>
 	<h1>gay ahaha</h1>
 </body>
 </html>

@@ -1,247 +1,292 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-	
+    <meta charset="utf-8">
+    <title>Winter Wonder Ride!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
-window.onload = function(e) {
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
 
-var videoSource = new Array();
-videoSource[0] = 'PromoVid1.mp4';
-videoSource[1] = 'PromoVid2.mp4';
-videoSource[2] = 'PromoVid3.mp4';
-var videoCount = videoSource.length;
-var i = 0;
-	
-document.getElementById("myVideo").setAttribute("src",videoSource[0]);
-function videoPlay(videoNum)
-{
-	document.getElementById("myVideo").setAttribute("src",videoSource[videoNum]);
-	document.getElementById("myVideo").load();
-	document.getElementById("myVideo").play();
-}
-	
-document.getElementById('myVideo').addEventListener('ended',myHandler,false);
-		
-function myHandler()
-{
-	i++;
-	if(i == videoCount){ i = 0; }
-	videoPlay(i);
-} 
-}
-</script>
+        html {
+            scroll-behavior: smooth;
+        }
 
-	
-<title>Winter Wonder Ride!</title>
-	
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-<style>
-{
-	padding:0;
-	margin:0;
-}
-html{
-	scroll-behavior: smooth;
-}
+        body {
+            background-color: darkred;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
-	body{
-		background-color: darkred;
-		margin:0px; 
-		padding: 0px;
-	}
-	
-		
-	<style>
-		
-	.video-container {
-		position: fixed;
-	}
-	
-	.video-container video {
-		position: fixed;
-		top: -60px;
-		left: -160px;
-		width:120%;
-		
-		height:120%;
-		z-index: -50;
-	}
-		
-	.background-rectangle {
-			position: relative;
-			
-			width: 60%;
-			height: 5000px;
-			background-color: rgb(255 255 255 / 50%);
-			left: 20%;
-		}
-		
-	.topnav {
-		position: fixed;
-		left:0;
-		right:0;
-		top:0;
-		height: 35px;
-		z-index: 50;
-	  overflow: hidden;
-	  background-color: rgb(255 255 255 / 40%);
-	}
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -50;
+        }
 
-	.topnav a {
-	  color: black;
-	  text-align: center;
-	  padding: 7px 8px;
-	  text-decoration: none;
-	  font-family: Arial;
-	  font-size: 1.2vw;
-	}
-		
-	.topnav name {
-		 float: none;
-  		position: absolute;
-		top: 50%;
-  		left: 50%;
-  		transform: translate(-50%, -50%);
-		
-		text-align: center;
-		text-decoration: none;
-		padding: 14px 16px;
-		font-family: Arial;
-		font-size: 1.5vw;
-		font-weight: bold;
-	}
+        .video-container video {
+            position: absolute;
+            top: -60px;
+            left: -160px;
+            width: 120%;
+            height: 120%;
+        }
 
-	.topnav a:hover {
-	  background-color: white;
-	  color: black;
-	}
+        .background-rectangle {
+            position: relative;
+            width: 60%;
+            height: 5000px;
+            background-color: rgba(255, 255, 255, 0.5);
+            left: 20%;
+            border: thick solid #A58626;
+            padding: 10px 20px;
+        }
 
-	.topnav a.active {
-	  background-color: darkred;
-	  color: white;
-	}
-		
-		
-		.video-right video{
-			float: right;
-			padding-top: 0px;
-			padding-right: 20px;
-		}
-	.video-left video {
-			float: left;
-			padding-top: 0px;
-			padding-left: 20px;
-		}
-	
-		.video-right img{
-			float: right;
-			padding-top: 0px;
-			padding-right: 20px;
-	}
-	.video-left img{
-			float: left;
-			padding-top: 0px;
-			padding-left: 20px;
-	}
-	
-		
-		
-		.video-center video {
-			float: none;
-			padding-top: 0px;
-			padding-left: 20px;
-		}
-		
-		.background-rectangle h1 {
-			padding-top: 45px;
-			font-family: Arial; 
-			text-align: center;
-			font-weight: 3000;
-			font-size:60px;
-		}
-		.background-rectangle video {
-			display: block;
-			margin: 0 auto;
-			padding-top: 20px;
-			padding-bottom: 100px;
-		}
-		
-		.background-rectangle table {
-  		margin-left: auto; 
-  margin-right: auto;
-	  margin-bottom: auto;
-	  margin-top: auto;
-	  
-	  width: 100%;
-	  height: 100%;
-}
-		.w-3{
-		width:50%;
-		text-align: center;
-		font-family: Arial;
-		padding-bottom:40px;
-		padding-top:10px;
-			padding-left: 20px;
-			padding-right: 20px;
-	}
-	</style>
+        .topnav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 35px;
+            z-index: 50;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+        }
+
+        .topnav .nav-left,
+        .topnav .nav-right {
+            display: flex;
+        }
+
+        .topnav .nav-left a,
+        .topnav .nav-right a {
+            color: black;
+            text-align: center;
+            padding: 7px 8px;
+            text-decoration: none;
+            font-size: 1.2vw;
+        }
+
+        .topnav .nav-left a:hover,
+        .topnav .nav-right a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .topnav .nav-left a.active,
+        .topnav .nav-right a.active {
+            background-color: darkred;
+            color: white;
+        }
+
+        .topnav .name {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5vw;
+            font-weight: bold;
+        }
+
+        .video-right,
+        .video-left {
+            float: left;
+            padding: 0 20px;
+        }
+
+        .video-center {
+            clear: both;
+            padding: 0 20px;
+        }
+
+        .video-right video,
+        .video-left video {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .video-right img,
+        .video-left img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .background-rectangle h1 {
+            padding-top: 45px;
+            text-align: center;
+            font-weight: 300;
+            font-size: 60px;
+        }
+
+        .background-rectangle video {
+            display: block;
+            margin: 20px auto;
+        }
+
+        .background-rectangle h2,
+        .background-rectangle h3,
+        .background-rectangle h4 {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .background-rectangle table {
+            margin: auto;
+            width: 100%;
+        }
+
+        .w-3 {
+            width: 50%;
+            text-align: center;
+            padding: 10px 20px;
+        }
+    </style>
+    
+    <script type="text/javascript">
+        window.onload = function() {
+            var videoSource = [
+                'PromoVid1.mp4',
+                'PromoVid2.mp4',
+                'PromoVid3.mp4'
+            ];
+            var videoCount = videoSource.length;
+            var i = 0;
+            
+            var videoElement = document.getElementById("myVideo");
+            videoElement.setAttribute("src", videoSource[0]);
+
+            function videoPlay(videoNum) {
+                videoElement.setAttribute("src", videoSource[videoNum]);
+                videoElement.load();
+                videoElement.play();
+            }
+            
+            function myHandler() {
+                i++;
+                if (i === videoCount) {
+                    i = 0;
+                }
+                videoPlay(i);
+            }
+
+            videoElement.addEventListener('ended', myHandler, false);
+        }
+    </script>
 </head>
-
 <body>
-			<div class="topnav">
-  <a style="float:left" href="../../index.html#schoolProjects">School Projects</a>
-  <a style="float:left" href="../../index.html#personalProjects">Personal Projects</a>
-		<name>Steph Smout</name>
-  <a style="float:right" href="../../index.html#contact">Contact</a>
-  <a style="float:right" href="../../index.html#aboutMe">About Me</a>
-  <a style="float:right" href="../../index.html#about">CV</a>
-</div>
-	
-	<div class="video-container">
-	<video src="WinterWonderRideBackground.mp4" muted autoplay loop></video>
-	</div>
-	<div class="background-rectangle" style="border: thick solid #A58626;">
-	<h1> Winter Wonder Ride!</h1>
-	<video id="myVideo" width="840" height="504" controls></video>
-		
+    <div class="topnav">
+        <div class="nav-left">
+            <a href="../../index.html#groupProjects">Group Projects</a>
+            <a href="../../index.html#personalProjects">Personal Projects</a>
+        </div>
+        <div class="name">Steph Smout</div>
+        <div class="nav-right">
+			
+            <a href="../../index.html#about">CV</a>
+            <a href="../../index.html#aboutMe">About Me</a>
+			<a href="../../index.html#contact">Contact</a>
+        </div>
+    </div>
+    
+    <div class="video-container">
+        <video src="WinterWonderRideBackground.mp4" muted autoplay loop></video>
+    </div>
+    
+    <div class="background-rectangle">
+        <h1>Winter Wonder Ride!</h1>
+        <video id="myVideo" width="840" height="504" controls></video>
+        
+        <h2>This is project Winter Wonder Ride!</h2>
+        <h3>For this project we had 4-5 weeks with 2 developers (me being one of them) and 3 artists. We had 3 sprints total and managed to get a lot more done in the last sprint than expected, so the difference is quite hilarious.<br>In this project I made the menu's / UI, obstacles and general finetuning.</h3>
+        <h4>(For more in depth credits, go to the end of the 3rd video at the top.)</h4>
 
-		
-<div class="video-right">
-<table>
-<tr>
-	
-	<td class="w-3">
-		<h3> This is Project Wonder Winter Ride!</h3>
-		<h3> One of my biggest challenges (and eventually successes) of this project were the multiple slots. I've made those using only PlayerPrefs, since I had never even heard of .Json files at this point. 😭</h3>
-		<h3> I used a system of saving strings with specific information to numbers associated with each file. For example, names were saved in a string with "nameFile" + fileNumber, cars with "whichCar" + "file" (nameFile + fileNumber), and so on.</h3>
-	</td>
-	<td>
-		<video width="500" height="300" src="MenuShowcase.mp4" controls></video>
-	</td>
-</tr>
-</table>
-</div>
-		
-<div class="video-left">
-<table>
-<tr>
-	<td>
-		<img width="500" height="300" src="Top10LB.png" alt="">
-	</td>
-	
-	<td class="w-3">
-		<h3>This type of saving was particularly tricky to use when I made the TOP10, since I had no way to associate the names of files with the now sorted top10. To counter this I made a scriptable object, which was essentially just a manifestation of each file. I spawned them in with the correct visuals and named the objects the deltaTime float, so I could sort the objects on their names. Then all I had to do was put them in the UI in order of the sorted array. </h3>
-	</td>
-</tr>
-</table>
-</div>
-	
-		
-	</div>
+        <div class="video-right">
+            <table>
+                <tr>
+                    <td class="w-3">
+                        <h3>Sprint 1! - Alpha</h3>
+                        <h3>This sprint was quite a mess, but we managed to get a good start. The beginning of the menu was there + general layout. Max, the other developer of this project, had started the movement of the car and we already had a checkpoint system.<br><br>
+                        The car movement is still very wonky and was practically impossible to drive, and everyone hit every obstacle possible as if they were drawn to it. 😂 The art also had a good base, and the blockout of the map was practically finished at this point.</h3>
+                    </td>
+                    <td>
+                        <video width="500" height="300" src="Sprint1.mp4" controls></video>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-	<h1>gay ahaha</h1>
+        <div class="video-left">
+            <table>
+                <tr>
+                    <td>
+                        <video width="500" height="300" src="Sprint2.mp4" controls></video>
+                    </td>
+                    <td class="w-3">
+                        <h3>Sprint 2! - Alpha</h3>
+                        <h3>The 2nd sprint was even more of a mess, we did not manage to get a lot done and were quite behind on schedule. The car is more drivable, but it was still very hard to do so. It was bouncy and slid all over the map.<br><br>
+                        I had made icicle obstacles that dropped once you were close enough, which made everyone be stuck in the cave for a few minutes. The artists were already working on texturing of models and the menu had a few small updates here and there.</h3>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="video-right">
+            <table>
+                <tr>
+                    <td class="w-3">
+                        <h3>Sprint 3! - Beta</h3>
+                        <h3>The third sprint was.. Insane. The artists had remade the entire map, the car movement was completely different with a handmade camera (Thank you, Max). The main and gameplay menus are completely finished with a scoreboard and checks so you can see how you did compared to the other saved files.<br><br>
+                        We added more obstacles: snowballs rolling down in the cave, snowpiles you have to avoid and the spikes falling were reworked. The map was now massive and with the finished power-ups much more fun to play!</h3>
+                        <h4>(The full gameplay video is at the top of the page!)</h4>
+                    </td>
+                    <td>
+                        <img width="450" height="300" src="WinterWonderRideSnowglobe.png" alt="Winter Wonder Ride Snowglobe">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="video-left">
+            <table>
+                <tr>
+                    <td>
+                        <img width="500" height="300" src="Top10LB.png" alt="Top 10 Leaderboard">
+                    </td>
+                    <td class="w-3">
+                        <h3>Personal Challenges!</h3>
+                        <h3>One of my biggest challenges (and eventually successes) of this project was managing multiple slots. I used PlayerPrefs for this, as I was unfamiliar with .Json files at the time. 😭<br><br>
+                        I saved strings with specific information to numbers associated with each file. For example, names were saved in a string with "nameFile" + fileNumber, cars with "whichCar" + "file" (nameFile + fileNumber), and so on.</h3>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="video-right">
+            <table>
+                <tr>
+                    <td class="w-3">
+                        <h3>This type of saving was particularly tricky when I created the TOP10, as I had no way to associate file names with the now sorted top10. To address this, I created a scriptable object for each file. I spawned them with the correct visuals and named the objects by their deltaTime float value so I could sort the objects based on their names. I then displayed them in the UI according to the sorted array.</h3>
+                    </td>
+                    <td>
+                        <video width="500" height="300" src="MenuShowcase.mp4" controls></video>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h1>gay ahaha</h1>
 </body>
 </html>
