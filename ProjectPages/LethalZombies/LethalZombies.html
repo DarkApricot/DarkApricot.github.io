@@ -186,7 +186,6 @@ function nextImg()
   background: #535353;
   color: white;
   width: 100%;
-  max-width: 500px;
   max-height: 300px;
   white-space: pre;
   font-size: 15px;
@@ -245,7 +244,7 @@ text-align: left;
 <table>
 <tr>
 	<td class="w-3">
-		<div class="wrapper">
+		<div class="wrapper" style="max-width: 500px;">
   <code> public void PlaceMonster(Transform _newParent, Vector3 _newPosition)
     {
         transform.position = _newPosition;
@@ -278,7 +277,7 @@ text-align: left;
 		<h3> This is a code snippet showing the system of placing new monsters.</h3>
 	</td>
 	<td class="w-3">
-		<div class="wrapper">
+		<div class="wrapper" style="max-width: 500px;">
   <code>  private void OnEnable()
     {
         transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
