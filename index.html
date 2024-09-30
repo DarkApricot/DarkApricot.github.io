@@ -79,39 +79,33 @@
             width: 100%;
             height: auto;
         }
-
+		
+		.AboutMeTotal :hover {
+			background-color: rgba(120, 120, 120, 1);
+		}
+	
+		.AboutMeTotal p:hover {
+			color: white;
+		}
+		
+		
         .AboutMeSquare {
             position: absolute;
-            top: 60%;
-            bottom: 10%;
+            top: 70%;
+            bottom: 4%;
             left: 0;
             right: 0;
-            background-color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(255, 255, 255, 0.5);
         }
+		
 
-        .AboutMeTitle {
-            position: absolute;
-            top: 64%;
-            bottom: 5%;
-            left: 0;
-            right: 0;
-            font-size: 2.5vw;
+        .AboutMeSquare p{
             font-family: Arial;
             text-align: center;
             font-weight: bold;
             color: black;
-        }
-
-        .AboutMeText {
-            position: absolute;
-            top: 70%;
-            bottom: 5%;
-            left: 10%;
-            right: 10%;
-            font-size: 1.6vw;
-            text-align: justify;
-            font-family: Arial;
-            font-weight: normal;
+			margin-left: 3%;
+			margin-right: 3%;
         }
 
         .projects {
@@ -227,6 +221,8 @@
                 videoPlay(i);
             }, false);
         }
+		
+		if()
     </script>
 	
     <div class="topnav">
@@ -244,9 +240,15 @@
 
     <div class="video-container">
         <video id="myVideo" muted autoplay preload="metadata"></video>
-        <div id="aboutMe" class="AboutMeSquare"></div>
-        <h1 class="AboutMeTitle">About Me</h1>
-        <h2 class="AboutMeText">Hello! My name is Steph and I'm a (game) programmer in the learning. I'm currently studying game development in The Netherlands and have wanted to work in the game industry ever since I was young; I took Scratch courses and tried to self-study LUA when I was around 10, then learned HTML and CSS/JavaScript basics when I was around 12-13. I have high ambition and creativity, but also a fun and humorous side that you can laugh with. ;P</h2>
+		
+	  <div class="AboutMeTotal">
+			<div id="aboutMe" class="AboutMeSquare">
+				<br>
+			<p style="font-size: 40px">About Me</p>
+				<br>
+            <p style="font-size: 25px">Hello! My name is Steph and I'm a (game) programmer in the learning. I'm currently studying game development in The Netherlands and have wanted to work in the game industry ever since I was young; I took Scratch courses and tried to self-study LUA when I was around 10, then learned HTML and CSS/JavaScript basics when I was around 12-13. I have high ambition and creativity, but also a fun and humorous side. ;P</p>
+        </div>
+	  </div>
     </div>
 
     <div id="groupProjects" class="projects">
@@ -273,12 +275,7 @@
                         <div class="tag-cloud">Unity3D</div>
                         <div class="tag-cloud">Dev</div>
                     </div>
-                </td>
-                <td class="w-3">
-                    <a href="#aboutMe">
-                        <img src="HomePage/HappySquare.png" alt="">
-                    </a>
-                </td>
+				</td>
             </tr>
         </table>
     </div>
@@ -287,11 +284,6 @@
         <br><br>
         <h1>- Solo Projects -</h1>
         <table>
-            <tr>
-                <td class="w-3"></td>
-                <td class="w-3"></td>
-                <td class="w-3"></td>
-            </tr>
             <tr>
                 <td class="w-3">
                     <a href="ProjectPages/LethalZombies/LethalZombies.html">
@@ -314,11 +306,6 @@
                         <div class="tag-cloud">Dev</div>
                         <div class="tag-cloud">Artist</div>
                     </div>
-                </td>
-                <td class="w-3">
-                    <a href="Bases/ProjectBase.html">
-                        <img src="HomePage/HappySquare.png" alt="">
-                    </a>
                 </td>
             </tr>
         </table>
