@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+	
     <title>Pixel Platformer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -210,11 +211,9 @@ text-align: left;
 		<br><br>
 		<h3> This project was made December 2022 / January 2023. <br> Backgrounds and additional animations made by me.
 		<br><br>
-		Art pack "Pixel Adventure 1" created by Pixel Frog. <br>
-	https://assetstore.unity.com/publishers/44925 - Pixel Frog</h3>
+			Art pack <a href="https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360" target="_blank">Pixel Adventure 1</a> created by <a href="https://assetstore.unity.com/publishers/44925" target="_blank">Pixel Frog.</a> </h3>
 </div>
-		
-		
+
 		<br>
 		<h1>Level 1 : A Normal Afternoon</h1>
 		 <video style="width: 95%;" src="Level1/PixelPlatformerLevel1Full.mp4" controls></video>
@@ -237,7 +236,111 @@ text-align: left;
 }
 </code></div>
 		</div>
-		
+<div style="margin-top: -70px;">
+		<div class="video-left">
+<table>
+<tr>
+	<td class="w-3">
+		 <video style="margin-left: -20px;" width="380" height="100%" src="Level1/FanSpinning.mp4" muted autoplay loop ></video>
+	</td>
+	
+	
+	<td class="w-3" >
+	<h3 style="	margin-left: -60px; margin-top: -140px">
+At the tutorial of the game, we were told how to make collectible fruit, and how to animate it. It wasn’t hard, since we just had to follow the video guide, but it sure was quite lengthy.
+<br><br>
+For the animation we just cut out some given sprites, shoved them in an animator and put it on repeat.
+<br><br>
+I ended up using the strawberries as a guide of where to go and how to do certain jumps. </h3>
+	</td>
+</tr>
+</table>
+</div>
+	
+			<div style="margin-top: -75px;">
+			<div class="wrapper" style="width: 90%">
+				<h2 class="w-3" style="width: 100%; margin-bottom: -30px"> Player Movement / Animations </h2>
+				
+				<code>public class PlayerMovement : MonoBehaviour
+{
+    private enum MovementState { idle, running, jumping, falling }
+
+    float dirX;
+
+		[SerializeField] private LayerMask jumpableGround;
+
+    private Rigidbody2D rb;
+    private Animator animate;
+    private SpriteRenderer sprite;
+		private BoxCollider2D coll;
+
+    private float moveSpeed = 7f;
+    private float jumpForcce = 10.5f;
+
+    public float playerPosX;
+    public float playerPosY;
+    
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        animate = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        coll = GetComponent<BoxCollider2D>();
+    }
+
+    void Update()
+    {
+        playerPosX = transform.position.x;
+        playerPosY = transform.position.y;
+
+        dirX = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForcce);
+        }
+
+        UpdateAnimationState();
+    }
+
+    private void UpdateAnimationState()
+    {
+        MovementState state;
+
+        if (dirX > 0)
+        {
+            state = MovementState.running;
+            sprite.flipX = false;
+        }
+        else if (dirX < 0)
+        {
+            state = MovementState.running;
+            sprite.flipX = true; //literally flips the sprite rotation on X
+        }
+        else
+        {
+            state = MovementState.idle; //If not running
+        }
+
+        if (rb.velocity.y > 0.1f)
+        {
+            state = MovementState.jumping; //If the up/down velocity is above 1
+        }
+        else if (rb.velocity.y < -0.1f)
+        {
+            state = MovementState.falling; //If the up/down velocity is below 1
+        }
+
+        animate.SetInteger("state", (int)state);
+    }
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround); //Makes sure you can't jump mid-air
+    }
+}
+</code></div>
+		</div>
 <div style="margin-top: -70px;">
 		<div class="video-left">
 <table>
@@ -265,7 +368,7 @@ I ended up using the strawberries as a guide of where to go and how to do certai
 	
 	<td class="w-3" >
 		<h2 style="	margin-left: -30px;
-				   margin-right: -100px; margin-top: -80px;"> aaaa)</h2> <br><br>
+				   margin-right: -100px; margin-top: -80px;"> Player movement / animations </h2> <br><br>
 	<h3 style="	margin-left: -30px;
 				   margin-right: -100px; margin-top: -20px">
 Text about code :P aaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaa aaaaaaaa a a a a aaaa aaaaaaa</h3>
@@ -276,13 +379,17 @@ Text about code :P aaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaa aaaaaaaa a a
 
 	  
 </code>
+			
 </div>
 	</td>
 	
 </tr>
+	
 </table>
+					
 </div>
-		
+
+			
 		<br><br><br><br><br>
         <div class="video-right">
             <table>
