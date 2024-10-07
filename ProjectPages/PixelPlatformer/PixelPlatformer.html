@@ -282,10 +282,10 @@ I ended up using the strawberries as a guide of where to go and how to do certai
     
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animate = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
-        coll = GetComponent<BoxCollider2D>();
+        rb = GetComponent&lt;Rigidbody2D&gt;();
+        animate = GetComponent&lt;Animator&gt;();
+        sprite = GetComponent&lt;SpriteRenderer&gt;();
+        coll = GetComponent&lt;BoxCollider2D&gt;();
     }
 
     void Update()
@@ -296,7 +296,7 @@ I ended up using the strawberries as a guide of where to go and how to do certai
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") &amp;&amp; IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForcce);
         }
@@ -308,12 +308,12 @@ I ended up using the strawberries as a guide of where to go and how to do certai
     {
         MovementState state;
 
-        if (dirX > 0)
+        if (dirX &gt; 0)
         {
             state = MovementState.running;
             sprite.flipX = false;
         }
-        else if (dirX < 0)
+        else if (dirX &lt; 0)
         {
             state = MovementState.running;
             sprite.flipX = true; //literally flips the sprite rotation on X
@@ -323,11 +323,11 @@ I ended up using the strawberries as a guide of where to go and how to do certai
             state = MovementState.idle; //If not running
         }
 
-        if (rb.velocity.y > 0.1f)
+        if (rb.velocity.y &gt; 0.1f)
         {
             state = MovementState.jumping; //If the up/down velocity is above 1
         }
-        else if (rb.velocity.y < -0.1f)
+        else if (rb.velocity.y &lt; -0.1f)
         {
             state = MovementState.falling; //If the up/down velocity is below 1
         }
@@ -417,7 +417,7 @@ Text about code :P aaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaa aaaaaaaa a a
             </table>
         </div>
 		
-		
+	</div>
 		
 		</div></div>
 </body>
