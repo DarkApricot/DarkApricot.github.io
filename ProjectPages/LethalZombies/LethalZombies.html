@@ -67,7 +67,7 @@ function nextImg()
 			position: relative;
 			
 			width: 60%;
-			height: 5000px;
+			height: 4200px;
 			background-color: rgb(255 255 255 / 70%);
 			left: 20%;
 		}
@@ -198,6 +198,15 @@ function nextImg()
   overflow-x: scroll;
 text-align: left;
 }
+		
+        .githubRef img {
+            transition: transform 0.2s;
+        }
+
+        .githubRef img:hover {
+            transform: scale(1.2);
+        }
+		
 	</style>
 </head>
 
@@ -215,7 +224,10 @@ text-align: left;
 	<video src="BackgroundVid.mkv" muted autoplay loop></video>
 	</div>
 	<div class="background-rectangle" style="border: thick solid  #932C00;">
-	<h1> Lethal Zombies </h1>
+		<h1 style="margin-left: 90px; margin-right: -90px"> Lethal Zombies 
+		<a  class="githubRef" target="_blank" href="https://github.com/DarkApricot/LethalZombies">
+		<img style="margin-left: 50px; margin-bottom: -22px " height="80px" src="../../GithubLogo.png" alt="GitHub Logo">
+		</a></h1>
 	<video  src="IntroVidLethalZombies.mp4" width="840" height="504" controls></video>
 		
 <div style="width:100; text-align:center; font-family:Arial; margin-top:0; margin-top: -50px; margin-left: 30px; margin-right: 30px;">
@@ -399,10 +411,7 @@ public class UIStatsScript : MonoBehaviour
         // Resume the game's time scale to normal
         Time.timeScale = 1;
     }
-}
-
-
-				</code> </pre>
+}</code> </pre>
 				
 				<br><br>
 <h2 class="w-3" style="width: 100%; margin-left: -20px"> (Saving) Pre-made Monster Stats </h2> <br>			

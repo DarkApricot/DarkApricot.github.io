@@ -44,7 +44,7 @@
         .background-rectangle {
             position: relative;
             width: 60%;
-            height: 5000px;
+            height: 2800px;
             background-color: rgba(255, 255, 255, 0.5);
             left: 20%;
             border: thick solid #A58626;
@@ -152,6 +152,14 @@
             text-align: center;
             padding: 10px 20px;
         }
+		
+		     .githubRef img {
+            transition: transform 0.2s;
+        }
+
+        .githubRef img:hover {
+            transform: scale(1.2);
+        }
     </style>
     
     <script type="text/javascript">
@@ -205,11 +213,15 @@
     </div>
     
     <div class="background-rectangle">
-        <h1>Winter Wonder Ride!</h1>
+        <h1 style="margin-left: 50px; margin-right: -50px">Winter Wonder Ride! <a  class="githubRef" target="_blank" href="https://github.com/MaxGeurts/NightRacer">
+		<img style="margin-left: 10px; margin-bottom: -22px " height="80px" src="../../GithubLogo.png" alt="GitHub Logo">
+		</a></h1>
         <video id="myVideo" width="840" height="504" controls></video>
         
         <h2>This is project Winter Wonder Ride!</h2>
-        <h3>For this project we had 4-5 weeks with 2 developers (me being one of them) and 3 artists. We had 3 sprints total and managed to get a lot more done in the last sprint than expected, so the difference is quite hilarious.<br>In this project I made the menu's / UI, obstacles and general finetuning.</h3>
+        <h3>Artists: Daniel Taki, Patrick van der Steen, Randy van Wanrooy, Tristan Maaskant
+			<br>Devs: Max Geurts, Me
+			<br><br>In this project I made the menu's / UI, obstacles and general finetuning.</h3>
         <h4>(For more in depth credits, go to the end of the 3rd video at the top.)</h4>
 
         <div class="video-right">
@@ -217,8 +229,7 @@
                 <tr>
                     <td class="w-3">
                         <h3>Sprint 1! - Alpha</h3>
-                        <h3>This sprint was quite a mess, but we managed to get a good start. The beginning of the menu was there + general layout. Max, the other developer of this project, had started the movement of the car and we already had a checkpoint system.<br><br>
-                        The car movement is still very wonky and was practically impossible to drive, and everyone hit every obstacle possible as if they were drawn to it. 😂 The art also had a good base, and the blockout of the map was practically finished at this point.</h3>
+                        <h3>The sprint was chaotic but productive. We established the menu and general layout.<br>Max, the other developer, started the car movement, and we implemented a checkpoint system. <br><br> The car movement is still unstable, making it hard to drive, with players constantly hitting obstacles. 😂<br>The art had a solid foundation, and the map blockout was nearly complete.</h3>
                     </td>
                     <td>
                         <video width="500" height="300" src="Sprint1.mp4" controls></video>
@@ -235,8 +246,7 @@
                     </td>
                     <td class="w-3">
                         <h3>Sprint 2! - Alpha</h3>
-                        <h3>The 2nd sprint was even more of a mess, we did not manage to get a lot done and were quite behind on schedule. The car is more drivable, but it was still very hard to do so. It was bouncy and slid all over the map.<br><br>
-                        I had made icicle obstacles that dropped once you were close enough, which made everyone be stuck in the cave for a few minutes. The artists were already working on texturing of models and the menu had a few small updates here and there.</h3>
+                        <h3>The 2nd sprint was even more chaotic, and we fell behind schedule. The car was more drivable but still hard to control, bouncing and sliding around.<br><br> I created icicle obstacles that caused players to get stuck in the cave for a while. The artists started texturing models, and the menu received minor updates.</h3>
                     </td>
                 </tr>
             </table>
@@ -247,9 +257,8 @@
                 <tr>
                     <td class="w-3">
                         <h3>Sprint 3! - Beta</h3>
-                        <h3>The third sprint was.. Insane. The artists had remade the entire map, the car movement was completely different with a handmade camera (Thank you, Max). The main and gameplay menus are completely finished with a scoreboard and checks so you can see how you did compared to the other saved files.<br><br>
-                        We added more obstacles: snowballs rolling down in the cave, snowpiles you have to avoid and the spikes falling were reworked. The map was now massive and with the finished power-ups much more fun to play!</h3>
-                        <h4>(The full gameplay video is at the top of the page!)</h4>
+                        <h3>The third sprint was intense. The artists remade the entire map, and Max revamped the car movement with a custom camera. The main and gameplay menus were completed, including a scoreboard and progress checks.<br><br> We added new obstacles like rolling snowballs and snowpiles, and reworked falling spikes. The map became massive, and with finished power-ups, gameplay was much more fun!</h3>
+                        <h4>(The full gameplay video is at the top of the page)</h4>
                     </td>
                     <td>
                         <img width="450" height="300" src="WinterWonderRideSnowglobe.png" alt="Winter Wonder Ride Snowglobe">
@@ -266,8 +275,7 @@
                     </td>
                     <td class="w-3">
                         <h3>Personal Challenges!</h3>
-                        <h3>One of my biggest challenges (and eventually successes) of this project was managing multiple slots. I used PlayerPrefs for this, as I was unfamiliar with .Json files at the time. 😭<br><br>
-                        I saved strings with specific information to numbers associated with each file. For example, names were saved in a string with "nameFile" + fileNumber, cars with "whichCar" + "file" (nameFile + fileNumber), and so on.</h3>
+                        <h3>A major challenge (and success) was managing multiple save slots. I used PlayerPrefs since I wasn't familiar with .Json files. 😭<br><br> I saved strings linked to file numbers (e.g., names with "nameFile" + fileNumber, cars with "whichCar" + fileNumber, etc.).</h3>
                     </td>
                 </tr>
             </table>
@@ -277,7 +285,7 @@
             <table>
                 <tr>
                     <td class="w-3">
-                        <h3>This type of saving was particularly tricky when I created the TOP10, as I had no way to associate file names with the now sorted top10. To address this, I created a scriptable object for each file. I spawned them with the correct visuals and named the objects by their deltaTime float value so I could sort the objects based on their names. I then displayed them in the UI according to the sorted array.</h3>
+                        <h3>Saving became tricky with the TOP10, as I couldn't link file names to the sorted top 10. I solved this by creating a scriptable object for each file, naming them by their deltaTime float value. This allowed me to sort and display them in the UI based on the sorted array.</h3>
                     </td>
                     <td>
                         <video width="500" height="300" src="MenuShowcase.mp4" controls></video>
